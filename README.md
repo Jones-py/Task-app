@@ -1,9 +1,9 @@
 ## Task model
-> | Model name | Column name | Data type |
-  |------------|-------------|-----------|
-  |            |             |           |
-  |            |             |           |
-
+| Column name | Data type |
+|-------------|-----------|
+|             |           |
+|             |           |
+|             |           |
 
 ## Label model
 
