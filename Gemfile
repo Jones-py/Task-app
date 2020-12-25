@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.5'
-gem 'bootstrap', '~> 4.4.1'
+# gem 'bootstrap', '~> 4.4.1'
 gem 'jquery-rails'
 gem 'rails', '~> 5.2.4', '>= 5.2.4.4'
 gem 'pg', '>= 0.18', '< 2.0'
@@ -22,6 +22,7 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'launchy'
+  gem 'cucumber'
 end
 
 group :development do
