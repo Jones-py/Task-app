@@ -76,4 +76,13 @@ require 'rails_helper'
       end
     end
   end
+ describe 'list display function' do
+    context 'When tasks are arranged in descending order of creation and time'do
+      it 'new task is displayed on top' do
+      task=Task.create(name: "joshua", Details: "we are going out")
+      visit tasks_path
+      tasks = Task.all.order("created_at DESC")
+   end
+  end
+ end
 end
