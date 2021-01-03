@@ -26,7 +26,7 @@
 |             |           |
 
 
-**#Deploying on Heroku**
+**Deploying on Heroku**
 [Description](https://devcenter.heroku.com/articles/getting-started-with-rails5)
 
 **Make sure you are in the right directory that contains your rails app. Create the app on heroku**
