@@ -10,6 +10,9 @@
   </head>
 
   <body>
-    <%= yield %>
+  <%=yield %>
   </body>
+<div class="time">
+  <p>Zambian Time: <%=Time.zone.now%></p>
+</div>
 </html>
