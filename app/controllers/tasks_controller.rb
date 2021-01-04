@@ -5,6 +5,7 @@ class TasksController < ApplicationController
   # GET /tasks.json
   def index
     @tasks = Task.all
+    # I18n.locale = params[:locale] || I18n.default_locale
   end
 
   # GET /tasks/1
