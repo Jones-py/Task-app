@@ -4,8 +4,16 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
   def index
+issues#3
+    @tasks = Task.all.order("created_at DESC")
+=======
     @tasks = Task.all
+<<<<<<< HEAD
 
+=======
+    # I18n.locale = params[:locale] || I18n.default_locale
+master
+>>>>>>> d04973402522a083d5efff8df79abf439118b096
   end
 
   # GET /tasks/1

@@ -24,5 +24,3 @@
 | password    |string     |
 | admin_user  |string     |
 |             |           |
-
-
