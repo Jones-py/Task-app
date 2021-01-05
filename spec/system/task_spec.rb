@@ -1,5 +1,5 @@
 require 'rails_helper'
- RSpec.describe 'task' , type: :system do
+ RSpec.describe 'task', type: :system do
   describe 'New Features'  do
     context 'case was the task to create a new'  do
       it ' task that you created is displayed '  do
@@ -14,12 +14,12 @@ require 'rails_helper'
     context 'If the transition to the list screen'  do
       it 'already created task list is displayed' do
         visit new_task_path
-              fill_in "Name", with: "Testing"
-              fill_in "Details", with: "Testing again"
-              click_button "Create Task"
-              visit tasks_path
-              expect(page).to have_content "Testing"
-              expect(page).to have_content "Testing again"
+        fill_in "Name", with: "Testing"
+        fill_in "Details", with: "Testing again"
+        click_button "Create Task"
+        visit tasks_path
+        expect(page).to have_content "Testing"
+        expect(page).to have_content "Testing again"
       end
     end
   end
@@ -76,4 +76,13 @@ require 'rails_helper'
       end
     end
   end
+ describe 'list display function' do
+    context 'When tasks are arranged in descending order of creation and time'do
+      it 'new task is displayed on top' do
+      task=Task.create(name: "joshua", Details: "we are going out")
+      visit tasks_path
+      tasks = Task.all.order("created_at DESC")
+   end
+  end
+ end
 end
