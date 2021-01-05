@@ -218,3 +218,7 @@ en:
     chats: ~
     index: ~
     show: ~
+
+  view:
+    sample: sample
+

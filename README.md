@@ -25,6 +25,7 @@
 | admin_user  |string     |
 |             |           |
 
+ issues#3
 **Deploying on Heroku**
 [Description](https://devcenter.heroku.com/articles/getting-started-with-rails5)
 
@@ -54,4 +55,6 @@ remote: Compressing source files... done.
 $ heroku run rake db:migrate
 ```
 
+=======
+ master
 
