@@ -9,21 +9,13 @@ Bundler.require(*Rails.groups)
 module TaskApp
 class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
- issues#3
+
     config.time_zone = 'Etc/GMT-2'
     config.active_record.default_timezone = :local
     config.i18n.available_locales = [:en, :ja]
     config.i18n.default_locale = :ja
     config.i18n.fallbacks = true
     config.i18n.enforce_available_locales = false
-=======
-    # config.time_zone = 'Etc/GMT-2'
-    # config.active_record.default_timezone = :local
-    # config.i18n.available_locales = [:en, :ja]
-    # config.i18n.default_locale = :ja
-    # config.i18n.fallbacks = true
-    # config.i18n.enforce_available_locales = false
-master
     config.load_defaults 5.2
     config.generators do |g|
       g.test_framework :rspec,
