@@ -85,4 +85,102 @@ require 'rails_helper'
    end
   end
  end
-end
+ describe 'detailed display function'  do
+     context 'if the transition to any task detail screen'  do
+       it 'Register task and sort with Deadline' do
+        visit new_task_path
+        fill_in "Name", with: "Try"
+        fill_in "Details", with: "Testing"
+        fill_in "Deadline", with: "2021/1/4"
+        click_button "Create Task"
+        visit tasks_path
+        click_on 'Deadline'
+        tasks=Task.all.order("Deadline DESC")
+      end
+     end
+   end
+   describe 'detailed display function'  do
+      context 'if the transition to any task detail screen'  do
+        it 'display task with status' do
+         visit new_task_path
+         fill_in "Name", with: "life"
+         fill_in "Details", with: "schooling"
+         fill_in "Deadline", with: "2021/1/9"
+         fill_in 'task[status]', with: "in progress"
+         click_button "Create Task"
+         expect(page).to have_content 'Task was successfully created.'
+
+       end
+      end
+    end
+
+    describe 'detailed display function'  do
+       context 'if the transition to any task detail screen'  do
+         it 'display task with priority' do
+          visit new_task_path
+          fill_in "Name", with: "Happy"
+          fill_in "Details", with: "school"
+          fill_in "Deadline", with: "2021/3/9"
+          fill_in "task_status", with: "in progress"
+          fill_in "task_priority", with: "medium"
+          click_button "Create Task"
+          expect(page).to have_content 'Task was successfully created.'
+        end
+       end
+     end
+     describe 'detailed display function'  do
+        context 'if the transition to any task detail screen'  do
+          it 'search by status' do
+           visit new_task_path
+           fill_in "Name", with: "Happy"
+           fill_in "Details", with: "school"
+           fill_in "Deadline", with: "2021/3/9"
+           fill_in "task_status", with: "in progress"
+           fill_in "task_priority", with: "medium"
+           click_button "Create Task"
+           visit tasks_path
+           fill_in 'Status', with: "in progress"
+           click_on "Search"
+           expect(page).to have_content 'in progress'
+         end
+        end
+      end
+
+      describe 'detailed display function'  do
+         context 'if the transition to any task detail screen'  do
+           it 'search by name' do
+            visit new_task_path
+            fill_in "Name", with: "Honeybee"
+            fill_in "Details", with: "schools"
+            fill_in "Deadline", with: "2021/3/19"
+            fill_in "task_status", with: "in progress"
+            fill_in "task_priority", with: "medium"
+            click_button "Create Task"
+            visit tasks_path
+            fill_in 'Name', with: "Honeybee"
+            click_on "Search"
+            expect(page).to have_content 'Honeybee'
+          end
+         end
+       end
+       describe 'detailed display function'  do
+          context 'if the transition to any task detail screen'  do
+            it 'search by both name and status' do
+             visit new_task_path
+             fill_in "Name", with: "Tokyo"
+             fill_in "Details", with: "Japan"
+             fill_in "Deadline", with: "2021/3/19"
+             fill_in "task_status", with: "completed"
+             fill_in "task_priority", with: "medium"
+             click_button "Create Task"
+             visit tasks_path
+             fill_in 'Name', with: "Tokyo"
+             fill_in 'Status', with: "completed"
+             click_on "Search"
+             expect(page).to have_content 'Tokyo'
+             expect(page).to have_content 'completed'
+           end
+          end
+        end
+
+ end
