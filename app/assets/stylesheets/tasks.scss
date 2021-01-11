@@ -6,9 +6,61 @@
 body{margin: 0;
 
 }
+.page{background-color: #59886b;
+border: thin solid transparent;
+color: #fff;
+font-size: inherit;
+text-decoration: none;
+
+}
+.page:hover{background-color: #59886b;
+color: white;
+text-decoration: none;
+
+}
+
 .search{display: inline-block;
 }
-.btn-primary:hover {
-  background-color: white; /* Green */
-  color: blue;
+
+.form-group{
+  padding-left: 27%;
+}
+
+*:focus {
+    outline: none;
+}
+
+.sort_link:hover{
+  background-color: #59886b;
+  color: white;
+  text-decoration: none;
+
+}
+
+.sort_link{
+  border: thin solid transparent;
+  color: #59886b;
+  font-size: inherit;
+  text-decoration: none;
+
+}
+
+.action-button {
+  width: 15%;
+  background-color: #59886b;
+  border: thin solid transparent;
+  color: #fff;
+  font-size: inherit;
+  text-decoration: none;
+  margin: auto 15px;
+}
+
+.action-button:hover {
+  background-color: #fff;
+  border-color:#59886b;
+  color: #59886b;
+}
+.form-btn{margin-left: 24%;
+          color: #fff;
+
 }

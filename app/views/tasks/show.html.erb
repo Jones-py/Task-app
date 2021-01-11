@@ -6,8 +6,18 @@
 </p>
 
 <p>
-  <strong>Details:</strong>
-  <%= @task.Details %>
+  <strong>Deadline:</strong>
+  <%= @task.Deadline %>
+</p>
+
+<p>
+  <strong>status:</strong>
+  <%= @task.status %>
+</p>
+
+<p>
+  <strong>priority:</strong>
+  <%= @task.priority %>
 </p>
 
 <%= link_to 'Edit', edit_task_path(@task) %> |
