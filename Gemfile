@@ -6,6 +6,7 @@ gem 'bootstrap', '~> 4.4.1'
 # gem 'i18n-timezones'
 # gem 'rails-i18n', '~> 5.1' # For 5.0.x, 5.1.x and 5.2.x
 # gem 'kaminari-bootstrap', '~> 3.0.1'
+gem'bcrypt', '3.1.11'
 gem 'kaminari', '~> 0.17.0'
 gem 'ransack'
 gem 'jquery-rails'

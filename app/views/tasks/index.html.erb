@@ -6,7 +6,7 @@
 <span class="search"><%=f.search_field :name_cont,placeholder: 'Name' %></span>
 <span class="search"><%=f.label :status %></span>
 <span class="search"><%=f.search_field :status_cont, placeholder: 'Status' %></span>
-<span><%=f.submit class: 'action-button' %></span>
+<span class="search"><%=f.submit class: 'search-button' %></span>
 <%end %>
 <br>
 <span><%= link_to 'Register New Task', new_task_path,class:"btn btn-outline-primary btn-sm"%></span>

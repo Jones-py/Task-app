@@ -1,13 +1,50 @@
 // Place all the styles related to the Tasks controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-@import "bootstrap";
+// @import "bootstrap";
 
-body{margin: 0;
+body{
 
 }
+
+#title{
+  color: black;
+}
+
+.nav-link{color: black;
+  font-size: 1rem;
+
+}
+.nav-item{
+  padding: 0 15px;
+  color: #fff;
+
+}
+
+.navbar{padding: 2rem 0;
+
+}
+.navbar-brand{color: black;
+// font-family: 'ubuntu', sans-serif;
+// font-size: 2rem;
+}
+
+.nav-link:hover{
+  background-color: #cdd0cb;
+  color: white;
+  text-decoration: none;
+
+}
+.navbar-brand:hover{
+  background-color: #cdd0cb;
+  color: white;
+  // text-decoration: none;
+
+}
+
+
 .page{background-color: #59886b;
-border: thin solid transparent;
+// border: thin solid transparent;
 color: #fff;
 font-size: inherit;
 text-decoration: none;
@@ -38,11 +75,26 @@ text-decoration: none;
 }
 
 .sort_link{
-  border: thin solid transparent;
+  // border: thin solid transparent;
   color: #59886b;
   font-size: inherit;
   text-decoration: none;
 
+}
+
+.search-button {
+  // width: 15%;
+  background-color: #59886b;
+  // border: thin solid transparent;
+  color: #fff;
+  font-size: inherit;
+  text-decoration: none;
+  margin: auto 15px;
+}
+.search-button:hover {
+  background-color: #fff;
+  border-color:#59886b;
+  color: #59886b;
 }
 
 .action-button {
@@ -62,5 +114,19 @@ text-decoration: none;
 }
 .form-btn{margin-left: 24%;
           color: #fff;
-
+}
+.action-back {
+  color: white;
+  width: 15%;
+  background-color: #59886b;
+  border: thin solid transparent;
+  font-size: 0.95rem;
+  margin: auto 15px;
+  text-decoration: none;
+}
+.action-back:hover {
+  background-color: white;
+  border: thin solid transparent;
+  color:#59886b;
+  border-color:#59886b;
 }

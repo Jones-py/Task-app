@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-
+  before_action :require_same_user, only: [:edit, :update, :destroy]
 
   def index
     @users = User.all
@@ -12,7 +12,10 @@ class UsersController < ApplicationController
 
 
   def new
-    @user = User.new
+    @user=User.new
+    if logged_in?
+     redirect_to chats_path
+   end
   end
 
 
@@ -22,16 +25,21 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-
-    respond_to do |format|
-      if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
-        format.json { render :show, status: :created, location: @user }
-      else
-        format.html { render :new }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
-    end
+        if @user.save
+          session[:user_id] = @user.id
+          redirect_to user_path(@user.id), notice: 'User was successfully created'
+        else
+          render :new
+        end
+    # respond_to do |format|
+    #   if @user.save
+    #     format.html { redirect_to @user, notice: 'User was successfully created.' }
+    #     format.json { render :show, status: :created, location: @user }
+    #   else
+    #     format.html { render :new }
+    #     format.json { render json: @user.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
 
 
@@ -64,6 +72,15 @@ class UsersController < ApplicationController
 
 
     def user_params
-      params.require(:user).permit(:name, :email, :password_digest)
+      params.require(:user).permit(:name, :email, :password,
+                                   :password_confirmation)
     end
+
+    def require_same_user
+        if current_user != @task.user && !current_user.admin?
+        flash[:alert] = "You can only edit or delete your own account"
+        redirect_to @user
+      end
+    end
+
 end
