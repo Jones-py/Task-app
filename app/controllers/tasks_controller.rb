@@ -8,7 +8,7 @@ class TasksController < ApplicationController
   PER = 3
 
   def index
-    @q=Task.ransack(params[:q])
+    @q=current_user.tasks.ransack(params[:q])
     @tasks= @q.result.page(params[:page]).per(PER)
   end
 

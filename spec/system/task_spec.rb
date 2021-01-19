@@ -154,4 +154,30 @@ require 'rails_helper'
        end
       end
      end
+     #STEP 4
+    #  describe 'User Registration' do
+    #       context 'user can be created'do
+    #       it 'user sign up' do
+    #       user=User.create(name: "job", email: "job@gmail.com", password:"job92", password_confirmation: "job92")
+    #       visit tasks_path
+    #       expect(page).to have_content 'User was successfully created'
+    #    end
+    #   end
+    # end
+    #
+    # describe 'User Registration' do
+    #      context 'user can be created'do
+    #      it 'user login' do
+    #      user=User.create(name: "job", email: "job@gmail.com", password:"job92", password_confirmation: "job92")
+    #      click_on "Logout"
+    #      visit new_session_path
+    #      click_on "login"
+    #      fill_in 'email', with: "job@gmail.com"
+    #      fill_in 'password', with: "job92"
+    #      click_on "login"
+    #   end
+    #  end
+    # end
+    # 
+
 end

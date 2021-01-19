@@ -1,17 +1,9 @@
+<div class="show-info">
+<div class="card text-center" style="width: 27rem;">
+    <div class="card-body">
+      <p class="card-title"><%=@user.name%>'s Profile</p>
+      <p class="card-subtitle mb-2 text-muted"><strong>Email:</strong><%= @user.email %></p>
+      <p class="card-subtitle mb-2 text-muted"> Number of Tasks: <%= @user.tasks.count %></p>
 
-<div class="mx-auto" style="width: 200px; mt-30">
-  <div class="user-info">
-    <p>
-      <strong>Name:</strong>
-      <%= @user.name %>
-    </p>
-
-    <p>
-      <strong>Email:</strong>
-      <%= @user.email %>
-    </p>
   </div>
-  <%= link_to 'Edit', edit_user_path(@user),class: "nav-link" %> |
-  <%= link_to 'Back', users_path, class: "nav-link" %>|
-  <%= link_to 'Home', tasks_path, class: "nav-link" %>
- </div>
+</div>
