@@ -1,22 +1,26 @@
 require 'rails_helper'
- RSpec.describe 'task', type: :system do
-  describe 'New Features'  do
-    context 'case was the task to create a new'  do
-      it ' task that you created is displayed '  do
-     task=Task.create(name:" joshua", Details: "we are going out")
+ RSpec.describe 'Task management function', type: :system do
+   
+  describe 'New Features' do
+    context 'case was the task to create a new' do
+      it 'task that you created is displayed' do
+     task=Task.create(name:" joshua", Details: "we are going out", Deadline: "2020/2/2", status: "Unstarted", priority: "Low")
      visit task_path(task)
      expect(page).to have_content "joshua"
      expect(page).to have_content "we are going out"
     end
-    end
+   end
   end
   describe 'list display function'  do
     context 'If the transition to the list screen'  do
       it 'already created task list is displayed' do
-        visit new_task_path
+        visit tasks_path
+        click_on "Register New Task"
         fill_in "Name", with: "Testing"
         fill_in "Details", with: "Testing again"
-        click_button "Create Task"
+        select 'Completed'
+        select 'Low'
+        click_on "Create Task"
         visit tasks_path
         expect(page).to have_content "Testing"
         expect(page).to have_content "Testing again"
@@ -27,9 +31,9 @@ require 'rails_helper'
      context 'if the transition to any task detail screen'  do
        it 'should delete a task' do
         visit new_task_path
-        fill_in "Name", with: "Testing"
-        fill_in "Details", with: "Testing again"
-        click_button "Create Task"
+        fill_in "Name", with: "Testing6"
+        fill_in "Details", with: "Testing again8"
+        click_on "Create Task"
         visit tasks_path
         click_on 'Delete'
 
@@ -42,7 +46,7 @@ require 'rails_helper'
         visit new_task_path
         fill_in "Name", with: "Testing"
         fill_in "Details", with: "Testing again"
-        click_button "Create Task"
+        click_on "Create Task"
         visit tasks_path
         click_on 'Show'
         expect(page).to have_content "Testing"
@@ -67,7 +71,7 @@ require 'rails_helper'
         task=Task.create(name: "joshua", Details: "we are going out")
         visit tasks_path
         click_on 'Edit'
-        click_button "Update Task"
+        click_on "Update Task"
         expect(page).to have_content 'Task was successfully updated.'
       end
     end
@@ -89,7 +93,7 @@ require 'rails_helper'
        fill_in "Name", with: "Try"
        fill_in "Details", with: "Testing"
        fill_in "Deadline", with: "2021/1/4"
-       click_button "Create Task"
+       click_on "Create Task"
        visit tasks_path
        click_on 'Deadline'
        tasks=Task.all.order("Deadline DESC")
@@ -178,6 +182,6 @@ require 'rails_helper'
     #   end
     #  end
     # end
-    # 
+    #
 
 end

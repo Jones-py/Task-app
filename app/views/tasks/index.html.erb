@@ -28,8 +28,9 @@
     </thead>
     <tbody>
 
-    <% @tasks.each do |task| %>
+  <% @tasks.each do |task| %>
         <tr>
+
           <td><%=task.name %></td>
           <td><%=task.Details %></td>
           <td><%=task.Deadline%></td>
@@ -41,6 +42,7 @@
           <td><%= link_to "Delete", task,class:"btn btn-outline-danger btn-sm", method: :delete, data: {confirm: 'Are you sure?' } %></td>
         </tr>
       <% end %>
+    
     </tbody>
   </table>
   <br>

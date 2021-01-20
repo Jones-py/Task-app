@@ -1,7 +1,7 @@
 class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
   before_action :current_user
-  before_action :authenticate_user, except: [:show, :index]
+  before_action :authenticate_user
   before_action :require_same_user, only: [:edit, :update, :destroy]
   before_action :logged_in?
 
@@ -9,11 +9,12 @@ class TasksController < ApplicationController
 
   def index
     @q=current_user.tasks.ransack(params[:q])
-    @tasks= @q.result.page(params[:page]).per(PER)
+    @tasks = @q.result(distinct: true).page(params[:page]).per(2)
   end
 
 
   def show
+
   end
 
 
@@ -27,6 +28,7 @@ class TasksController < ApplicationController
 
 
   def edit
+
   end
 
 

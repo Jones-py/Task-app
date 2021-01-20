@@ -16,10 +16,22 @@ class ApplicationController < ActionController::Base
       { locale: I18n.locale }.merge options
     end
 
+    # def authenticate_user
+    #     if @current_user == nil
+    #       flash[:notice] = t('notice.login_needed')
+    #        redirect_to new_session_path
+    #     end
+    #   end
+
     def authenticate_user
-        if @current_user == nil
-          flash[:notice] = t('notice.login_needed')
-           redirect_to new_session_path
+        unless logged_in?
+          flash[:warning] = 'Please login first!'
+          redirect_to new_session_path
         end
       end
+
+
+
+
+
 end

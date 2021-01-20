@@ -1,5 +1,6 @@
 class Admin::UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user
   before_action  :if_not_admin
 
   PER = 3
@@ -66,7 +67,7 @@ class Admin::UsersController < ApplicationController
   end
 
   def  if_not_admin
-    redirect_to  tasks_path  unless  current_user.admin?
+    redirect_to  tasks_path  unless current_user.admin?
   end
 
   def user_params
@@ -74,5 +75,4 @@ class Admin::UsersController < ApplicationController
                                  :password_confirmation, :admin)
 
   end
-
 end
