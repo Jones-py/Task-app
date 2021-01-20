@@ -2,7 +2,7 @@
   "name": "task-app",
   "private": true,
   "dependencies": {
-    "bootstrap": "^5.0.0-alpha3",
+    "bootstrap": "^4.6.0",
     "jquery": "^3.5.1",
     "popper.js": "^1.16.1"
   }

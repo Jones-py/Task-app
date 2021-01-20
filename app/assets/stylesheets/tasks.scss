@@ -128,13 +128,14 @@ body{
 }
 
 .action-button {
-  width: 15%;
+  width: 50%;
   background-color: #59886b;
   border: thin solid transparent;
   color: #fff;
   font-size: inherit;
   text-decoration: none;
-  margin: auto 15px;
+  margin-bottom: 20px;
+  margin-left: 1px;
 }
 
 .action-button:hover {
@@ -142,8 +143,10 @@ body{
   border-color:#59886b;
   color: #59886b;
 }
-.form-btn{margin-left: 24%;
+.form-btn{margin-right: 45%;
           color: #fff;
+          display: inline-block;
+          text-align: center;
 }
 .action-back {
   color: white;
