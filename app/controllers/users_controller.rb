@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   def show
    @user = current_user
    @tasks = @user.tasks&.page(params[:page]).per(2)
+   flash[:alert] = "You can only show, edit or delete your own account"
     redirect_to tasks_path if @user.id !=  params[:id].to_i
   end
 
