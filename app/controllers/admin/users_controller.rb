@@ -1,6 +1,6 @@
 class Admin::UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user
+  before_action :authenticate_user, only: [:show, :edit, :update, :destroy]
   before_action  :if_not_admin
 
   PER = 3
@@ -56,7 +56,7 @@ class Admin::UsersController < ApplicationController
     user.destroy
     flash[:success] = "User destroyed."
    end
-   redirect_to admin_users_path
+   return admin_users_path
  end
 
 

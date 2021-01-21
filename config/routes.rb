@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  # get 'admin/::'
-  # get 'admin/users'
+  
   resources :sessions
   resources :users, only:[:new, :create, :show]
   resources :tasks

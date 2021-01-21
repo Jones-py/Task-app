@@ -1,20 +1,21 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_action :require_same_user, only: [:edit, :update, :destroy]
-  before_action :authenticate_user, only: [:show]
-  
+  # before_action :require_same_user, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user, only: [:show, :edit, :update, :destroy]
+
 
   def show
-
+   @user = current_user
+   @tasks = @user.tasks&.page(params[:page]).per(2)
+    redirect_to tasks_path if @user.id !=  params[:id].to_i
   end
-
 
   def new
    @user=User.new
     if logged_in?
      redirect_to tasks_path
     end
-  end
+   end
 
 
   def edit
@@ -65,11 +66,10 @@ class UsersController < ApplicationController
     params.require(:user).permit(:name, :email, :password, :password_confirmation, :admin, :id)
   end
 
-  def require_same_user
-    if current_user != @task.user && !current_user.admin?
-      flash[:alert] = "You can only edit or delete your own account"
-      redirect_to @user
-    end
-  end
-
+  # def require_same_user
+  #   if current_user != @task.user  && !current_user.admin?
+  #     flash[:alert] = "You can only show, edit or delete your own account"
+  #     redirect_to @user
+  #   end
+  # end
 end
