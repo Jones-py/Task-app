@@ -35,7 +35,7 @@
           <td><%=task.name %></td>
           <td><%=task.Details %></td>
         <td><%task.labels.each do |label| %>
-            <%=label.name %>
+            [<%=label.name %>]
             <%end %>
           <td><%=task.Deadline%></td>
           <td><%=task.created_at%></td>
