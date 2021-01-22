@@ -4,7 +4,7 @@ class LabelsController < ApplicationController
   # GET /labels
   # GET /labels.json
   def index
-    @labels = Label.all
+     @label = Label.all
   end
 
   # GET /labels/1
@@ -25,7 +25,7 @@ class LabelsController < ApplicationController
   # POST /labels.json
   def create
     @label = Label.new(label_params)
-
+    @label.user_id = current_user.id
     respond_to do |format|
       if @label.save
         format.html { redirect_to @label, notice: 'Label was successfully created.' }
@@ -69,6 +69,6 @@ class LabelsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def label_params
-      params.require(:label).permit(:name)
+      params.require(:label).permit(:name, :id)
     end
 end
