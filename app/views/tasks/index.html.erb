@@ -9,6 +9,7 @@
   <span class="search"><%=f.search_field :name_cont,placeholder: 'Name' %></span>
   <span class="search"><%=f.label :status %></span>
   <span class="search"><%=f.search_field :status_cont, placeholder: 'Status' %></span>
+   <span class="search">  <%= f.select :labels_id_eq, options_from_collection_for_select(current_user.labels.all, :id, :name), prompt: "attach labels", id: 'label_ids' %></span>
   <span class="search"><%=f.submit class: 'search-button' %></span>
   <%end %>
   <br>
@@ -19,6 +20,7 @@
       <tr>
         <th>Name</th>
         <th>Details</th>
+        <th>Labels</th>
         <th class="sort_link"><%=sort_link(@q, :Deadline, 'Deadline', default_order: :desc)%></th>
         <th>RegistrationDate</th>
         <th>status</th>
@@ -30,9 +32,11 @@
 
   <% @tasks.each do |task| %>
         <tr>
-
           <td><%=task.name %></td>
           <td><%=task.Details %></td>
+        <td><%task.labels.each do |label| %>
+            [<%=label.name %>]
+            <%end %>
           <td><%=task.Deadline%></td>
           <td><%=task.created_at%></td>
           <td><%=task.status %></td>
@@ -42,12 +46,10 @@
           <td><%= link_to "Delete", task,class:"btn btn-outline-danger btn-sm", method: :delete, data: {confirm: 'Are you sure?' } %></td>
         </tr>
       <% end %>
-    
     </tbody>
   </table>
   <br>
 
   <a class="nav-link" href="#"><%=paginate @tasks, class: "nav-link" %></a>
 
-</div>
 </div>
